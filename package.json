@@ -1,0 +1,55 @@
+{
+  "name": "@pattonwebz/color-contrast-suggest",
+  "version": "0.0.1",
+  "author": "William Patton",
+  "main": "src/js/index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --watch --mode development",
+    "prepare": "husky",
+    "lint": "npm run lint:php && npm run lint:js && npm run lint:sass",
+    "lint-staged-precommit": "lint-staged",
+    "lint:php": "./vendor/bin/phpcs",
+    "lint:php:fix": "./vendor/bin/phpcbf",
+    "lint:js": "wp-scripts lint-js",
+    "lint:js:fix": "wp-scripts lint-js --fix",
+    "lint:sass": "wp-scripts lint-style",
+    "lint:sass:fix": "wp-scripts lint-style --fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint-staged-precommit"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "npm run lint:js"
+    ],
+    "*.{css,scss}": [
+      "npm run lint:sass"
+    ],
+    "*.{php}": [
+      "npm run lint:php"
+    ]
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/template": "^7.25.9",
+    "@wordpress/eslint-plugin": "^19.2.0",
+    "@wordpress/scripts": "^29.0.0",
+    "babel-loader": "^9.2.1",
+    "clean-webpack-plugin": "^4.0.0",
+    "css-loader": "^7.1.2",
+    "css-minimizer-webpack-plugin": "^7.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.10",
+    "mini-css-extract-plugin": "^2.9.2",
+    "sass": "^1.81.0",
+    "sass-loader": "^16.0.3",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.96.1",
+    "webpack-cli": "^5.1.4"
+  }
+}
