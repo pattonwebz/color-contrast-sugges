@@ -44,6 +44,24 @@ class ColorContrastSuggest {
 	 * @return void
 	 */
 	public function boot() {
-		// stub.
+		// this should be a block instead later.
+		add_shortcode( 'color-contrast-suggest', [ $this, 'shortcode' ] );
+	}
+
+	/**
+	 * Shortcode callback.
+	 *
+	 * @param array $atts Shortcode attributes.
+	 * @return string
+	 */
+	public function shortcode( $atts ) {
+		$atts = shortcode_atts(
+			[],
+			$atts
+		);
+
+		ob_start();
+		require 'partials/color-contrast-suggest';
+		return ob_get_clean();
 	}
 }

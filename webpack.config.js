@@ -11,6 +11,7 @@ module.exports = {
 	entry: {
 		plugin: [
 			'./src/sass/styles.scss',
+			'./src/ts/index.ts',
 		],
 	},
 	output: {
